@@ -26,23 +26,22 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-
+import  { Header }  from './components/header/header'
+import  { TableData }  from './components/shared/table'
 
 type Props = {};
 export default class App extends Component<Props> {
 
 
   render() {
+      const { table, container, h1 } = styles
     return (
-      <View style={styles.container}>
-
-          <View style={styles.header}>
-              <Text style={{fontSize: 30}}>
-                  Administrado - Rentas
-                  <Icon name="logo-angular" style={{fontSize: 35}}></Icon>
-              </Text>
+      <View style={container}>
+          <Header headerText={'Administrado - Rentas '}></Header>
+          <Text style={h1}>Listado de Contribuyentes</Text>
+          <View style={table}>
+              <TableData ></TableData>
           </View>
-          <Button title="BOTON" style={{ container: { backgroundColor: 'blue' }}} />
       </View>
     );
   }
@@ -50,19 +49,15 @@ export default class App extends Component<Props> {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-      flexDirection: 'row',
+      flexDirection: 'column',
     justifyContent: 'center',
-    backgroundColor: '#F5FCFF',
   },
-    header: {
-      flex: 1,
-        height: 50,
-        flexDirection: 'row',
-        borderBottomColor: '#47315a',
-        borderBottomWidth: 1 / PixelRatio.get(),
+    table: {
+      width: '100%',
+        marginTop: 20
     },
-    line: {
-      width: '100%'
+    h1: {
+      fontSize: 20,
+        marginTop: 10
     }
 });
